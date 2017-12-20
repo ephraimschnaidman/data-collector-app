@@ -3,7 +3,7 @@ import smtplib
 
 def send_email(email, weight, height, bmi, avg_bmi, count):
     from_email="feschnaidman26@gmail.com"
-    from_password="******" #censored to public
+    from_password="python1!" #censored to public
     to_email=email
 
     subject="BMI Data"
