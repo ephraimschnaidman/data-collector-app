@@ -7,7 +7,7 @@ def send_email(email, weight, height, bmi, avg_bmi, count):
     to_email=email
 
     subject="BMI Data"
-    message="Hello. This is an auto-generated email regarding your BMI information. <br> Your weight is <strong>%s</strong>. <br> Your height is <strong>%s</strong>. <br> Your BMI is <strong>%s</strong>. <br> The average BMI is <strong>%s</strong> out of <strong>%s</strong> entries so far. <br> Thank you!" % (weight, height, bmi, avg_bmi, count)
+    message="Hello. This is an auto-generated email regarding your BMI information. <br> Your weight is <strong>%s</strong>. <br> Your height is <strong>%s m</strong>. <br> Your BMI is <strong>%s Kg</strong>. <br> The average BMI is <strong>%s</strong> out of <strong>%s</strong> entries so far. <br> Thank you!" % (weight, height, bmi, avg_bmi, count)
     print(message)
 
     msg=MIMEText(message, 'html')
