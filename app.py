@@ -36,13 +36,13 @@ def success():
         bmi=round(bmi,2)
         # BMI = weight (kg) ÷ height2 (m2)
 
-        if db.session.query(Data).filter(Data.email_==email).count() == 0:
-            data=Data(email,weight,height,bmi)
+        if db.session.query(Data).filter(Data.email_==email).count() == 0:  # execute ths block of code
+            data=Data(email,weight,height,bmi)                              # assuming there are no email duplicates
             db.session.add(data)
             db.session.commit()
-            avg_bmi=db.session.query(func.avg(Data.bmi_)).scalar()
+            avg_bmi=db.session.query(func.avg(Data.bmi_)).scalar()          # using the from sqlalchemy.sql import func class; scalar is the number being extracted for the avg
             avg_bmi=round(avg_bmi,2)
-            count=db.session.query(Data.bmi_).count()
+            count=db.session.query(Data.bmi_).count()                       # count of entries in database
             send_email(email, weight, height, bmi, avg_bmi, count)
             return render_template("success.html")
     return render_template("index.html",
